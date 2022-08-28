@@ -1,0 +1,36 @@
+---
+title: Diary 2021-05-07
+subtitle: 2021-05-07
+layout: post_detail
+date-created: 2021-05-07
+date-edited: 2021-06-07
+img: dreams.png
+thumbnail: 2021-05-07-diary-thumbnail.jpg
+alt: image-alt
+category: Post
+description: Diary-2021-05-07
+comments: true
+---
+
+### 오늘 한일 2021-05-07
+
+* Docker 공부
+  - container, docker run, docker compose up
+* Git bash CLI 명령어 공부
+  - git clone (url)
+  - git add .
+  - git status
+
+---
+
+### 개발자가 mac을 쓰는 이유
+
+애플 제품을 쓰는것이 현세대에서 허영, 사치 등의 이미지로 프레임화 되고있다.
+주관적인 관점에서 효용>=가격이라면 허영 혹은 사치가 아니다.
+
+많은 개발자들이 mac을 선호하며 사용하고있는데, 이는 windows PC는 소비재로써 mac은 자본재로 주로 용이하게 사용되기 때문이다.
+자본재는 자본재 프리미엄(e.g. Apple tax)가 붙는다.
+Windows PC는 다양한 하드웨어 조합이 가능하므로 고성능 하드웨어의 조합이 요구될 때 유리하다. 하지만 그로 인해 무한대의 조합의 하드웨어에 소프트웨어를 최적화시켜야하므로 개발이 어렵다. 심지어 프로그래밍 언어도 많다.
+개발자의 입장에서 봤을때 mac의 생태계는 폐쇄적이지만 일관적이고 xCode라는 단일화된 툴을 사용하여 개발을 진행하므로 Windows 생태계보다 유리한 점이 있다.
+
+결론: 내가 원하는 목적과 기능에 맞게 개발환경을 구현하자.

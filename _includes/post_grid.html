@@ -1,0 +1,33 @@
+<!-- Post Grid Section -->
+<section id="post" class="bg-light-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Recent Post</h2>
+                <h3 class="section-subheading text-muted">What I've Written?</h3>
+            </div>
+        </div>
+        <div class="row">
+            {% assign posts = site.posts | where_exp: "post", "post.category contains 'Post'" %}
+            {% for post in posts limit:6 %}
+            <div class="col-md-4 col-sm-6 post-item">
+                <a href="{{ post.url }}" class="post-link">
+                    <div class="post-hover">
+                        <div class="post-hover-content">
+                            <i class="fa fa-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img src="../img/{{ post.url }}/{{ post.thumbnail }}" class="img-responsive img-centered" alt="">
+                </a>
+                <div class="post-caption">
+                    <h4>{{ post.title }}</h4>
+                    <p class="text-muted">{{ post.subtitle }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="row text-center">
+            <a href="/post_all/" class="page-scroll btn btn-xl">Tell Me More</a>
+        </div>
+    </div>
+</section>

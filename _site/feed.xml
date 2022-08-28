@@ -1,0 +1,1223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>George Petrovski</title>
+    <description>Developer. Full Stack. Student.</description>
+    <link>http://0.0.0.0:4000/</link>
+    <atom:link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Fri, 23 Jul 2021 09:43:45 -0500</pubDate>
+    <lastBuildDate>Fri, 23 Jul 2021 09:43:45 -0500</lastBuildDate>
+    <generator>Jekyll v4.2.0</generator>
+    
+      <item>
+        <title>Monogame Tutorial</title>
+        <description>&lt;h1 id=&quot;monogame-tutorial&quot;&gt;Monogame Tutorial&lt;/h1&gt;
+&lt;h3 id=&quot;2021-07-22&quot;&gt;2021-07-22&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;Introduction&lt;/li&gt;
+  &lt;li&gt;Installing visual Studio and Monogame&lt;/li&gt;
+  &lt;li&gt;Creating new projects and code organization
+    &lt;ol&gt;
+      &lt;li&gt;Windows CrossPlatform&lt;/li&gt;
+      &lt;li&gt;Constructor: public game1()
+        &lt;ul&gt;
+          &lt;li&gt;We can change windows size or basic settings
+&lt;img src=&quot;/img//post/study/Monogame-Tutorial//constructor-game-1.png&quot; alt=&quot;Constructor Game1&quot; class=&quot;img-responsive&quot; /&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Initialize method
+        &lt;ul&gt;
+          &lt;li&gt;When game starts it is executed, setting
+&lt;img src=&quot;/img//post/study/Monogame-Tutorial//initialize-method.png&quot; alt=&quot;Initialize Method&quot; class=&quot;img-responsive&quot; /&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;LoadContent method
+        &lt;ul&gt;
+          &lt;li&gt;Load Assets like graphics
+&lt;img src=&quot;/img//post/study/Monogame-Tutorial//load-content-method.png&quot; alt=&quot;LoadContent Method&quot; class=&quot;img-responsive&quot; /&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Update method
+        &lt;ul&gt;
+          &lt;li&gt;Gameloop =&amp;gt; 60times in a second&lt;/li&gt;
+          &lt;li&gt;Game frame
+&lt;img src=&quot;/img//post/study/Monogame-Tutorial//update-method.png&quot; alt=&quot;Update Method&quot; class=&quot;img-responsive&quot; /&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Draw method
+        &lt;ul&gt;
+          &lt;li&gt;E.g. show target&lt;/li&gt;
+          &lt;li&gt;Runs in every frame
+&lt;img src=&quot;/img//post/study/Monogame-Tutorial//draw-method.png&quot; alt=&quot;Draw Method&quot; class=&quot;img-responsive&quot; /&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Importing assets with the Pipeline tool
+    &lt;ol&gt;
+      &lt;li&gt;Content Pipeline: The MonoGame Pipeline Tool is used to create and manage MonoGame content projects. The files in content projects are processed by the MonoGame Pipeline tool and outputted as . xnb files for use in CocosSharp and MonoGame applications.
+&lt;img src=&quot;/img//post/study/Monogame-Tutorial//monogame-content-builder.png&quot; alt=&quot;Monogame Content Builder&quot; class=&quot;img-responsive&quot; /&gt;
+        &lt;ul&gt;
+          &lt;li&gt;Add Existing Item - Build&lt;/li&gt;
+          &lt;li&gt;.xnb files&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Drawing graphics #1
+    &lt;ol&gt;
+      &lt;li&gt;Sprites: you take your individual animation frames (of characters, objects, etc.), and drag and drop them into TexturePacker. Then TexturePacker combines them into sprite sheets, which you can then load into your game.&lt;/li&gt;
+      &lt;li&gt;Load Content
+        &lt;ul&gt;
+          &lt;li&gt;Term – SpriteBatch: A SpriteBatch is used to draw a whole bunch of sprites all at one time. … We will then draw our sprites, and when we’re done, we will indicate that we are done drawing our batch of sprites. Go down to the Draw() method and add the following three lines of code:&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-C#&quot;&gt;// Assign Imported assets(.xnb files = stream target) to targetSprite
+targetSprite = Content.Load&amp;lt;Texture2D&amp;gt;(&quot;target&quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Drawing graphics #2
+    &lt;ol&gt;
+      &lt;li&gt;_spriteBatch.Draw(targetSprite, new Vector2(0,0), Color.White);
+        &lt;ul&gt;
+          &lt;li&gt;Three parameters&lt;/li&gt;
+          &lt;li&gt;Vector: position (Origin: (0, 0)), unit pixel, increase y  downer&lt;/li&gt;
+          &lt;li&gt;Color: tint&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Drawing Order&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Printing Text(SpriteFonts): Blue print of fonts in Monogame
+    &lt;ol&gt;
+      &lt;li&gt;SolutionExploer – Content – GalleryFont.sprite
+        &lt;ul&gt;
+          &lt;li&gt;In draw method:&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-C#&quot;&gt;_spriteBatch.DrawString(gameFont, &quot;Test Message&quot;, new Vector2(100, 100), Color.White);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;2021-07-23&quot;&gt;2021-07-23&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;Variables
+    &lt;ol&gt;
+      &lt;li&gt;Declare variable
+        &lt;ul&gt;
+          &lt;li&gt;Vector2 targetPosition = new Vector2(300, 300);&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Using variable
+        &lt;ul&gt;
+          &lt;li&gt;_spriteBatch.Draw(targetSprite, targetPosition, Color.White);&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Declare constant variable
+        &lt;ul&gt;
+          &lt;li&gt;Doesn’t change and cannot be changed&lt;/li&gt;
+          &lt;li&gt;Using const keyword&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Mouse Input
+    &lt;ol&gt;
+      &lt;li&gt;State: What mouse do particular moment(click, moving, etc…)
+        &lt;ul&gt;
+          &lt;li&gt;Because update method is executed in every frame, score increases more than 1.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Use mRelased that indicates mouse button released state&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Shooting the Target
+    &lt;ol&gt;
+      &lt;li&gt;How can we tell that the mouse clicks the target?
+        &lt;ul&gt;
+          &lt;li&gt;Calculate the distance between the mouse click point and center of the target&lt;/li&gt;
+          &lt;li&gt;If the distance is less than target’s radius, it’s hit&lt;/li&gt;
+          &lt;li&gt;The origin point of sprite is upper left corner&lt;/li&gt;
+          &lt;li&gt;Offset
+            &lt;pre&gt;&lt;code class=&quot;language-C#&quot;&gt;_spriteBatch.Draw(targetSprite, new Vector2(targetPosition.X - targetRadius, targetPosition.Y - targetRadius), Color.White);
+&lt;/code&gt;&lt;/pre&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Randomness
+    &lt;ol&gt;
+      &lt;li&gt;Change Target Location Randomly after hit
+        &lt;ul&gt;
+          &lt;li&gt;// Change target Position randomly&lt;/li&gt;
+          &lt;li&gt;// Range is exclusive&lt;/li&gt;
+          &lt;li&gt;Random random = new Random();
+            &lt;pre&gt;&lt;code class=&quot;language-C#&quot;&gt;targetPosition.X = random.Next(0, _graphics.PreferredBackBufferWidth);
+targetPosition.Y = random.Next(0, _graphics.PreferredBackBufferHeight);
+&lt;/code&gt;&lt;/pre&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;reference&quot;&gt;Reference&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=sPH-sNTSrhw&amp;amp;t=0s&quot; target=&quot;_blank&quot;&gt;[2021 Update!] Make Games with MonoGame - Installation and Development Fundamentals - Kyle Schaub&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Thu, 22 Jul 2021 00:00:00 -0500</pubDate>
+        <link>http://0.0.0.0:4000/post/study/Monogame-Tutorial/</link>
+        <guid isPermaLink="true">http://0.0.0.0:4000/post/study/Monogame-Tutorial/</guid>
+        
+        
+        <category>Post</category>
+        
+        <category>Study</category>
+        
+      </item>
+    
+      <item>
+        <title>How to Manage Time</title>
+        <description>&lt;h1 id=&quot;우리는-시간이-없는게-아니라-에너지가-없다&quot;&gt;우리는 ‘시간’이 없는게 아니라 ‘에너지’가 없다&lt;/h1&gt;
+
+&lt;h2 id=&quot;요즘받는-질문&quot;&gt;요즘받는 질문&lt;/h2&gt;
+&lt;p&gt;회사에 다니면서 자기가 하고싶은일을 어떻게 해? 잠을 안자?&lt;/p&gt;
+
+&lt;h2 id=&quot;생각해볼-것&quot;&gt;생각해볼 것&lt;/h2&gt;
+&lt;p&gt;양심에 손을 얹고 과연 정말 시간이 없나 생각해봅시다. 하루 1시간도, 30분 빈틈도 없이 계속 바쁘신가요? 그런 하루가 있기는 하겠지만, 한달에 며칠 안 될겁니다. 즉, 우리에게 시간은 있지만, 에너지(=의지)가 없는것입니다. 그러므로 우리는 효율적인 에너지 관리법을 배워야합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;요약&quot;&gt;요약&lt;/h2&gt;
+&lt;p&gt;시간관리⏱=&amp;gt;에너지관리 💪&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;‘회사일’과 ‘나만의 일’ 사이에 접점 만들기–파이프라인💰&lt;/li&gt;
+  &lt;li&gt;체력기르기–매일 30분이상 운동하기🏃‍♀️&lt;/li&gt;
+  &lt;li&gt;인간관계에 감정 과사용 줄이기🚥&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;첫번째-나의-양동이를-키워라&quot;&gt;첫번째, ‘나의 양동이’를 키워라&lt;/h2&gt;
+&lt;p&gt;한사람이 하루에 쓸수있는 에너지의 총량은 정해져 있습니다.
+&lt;img src=&quot;/img//post/how-to-manage-time//water-bottle.png&quot; alt=&quot;Water Bottle&quot; class=&quot;img-responsive&quot; /&gt;
+우리는 아침에 일어나면서 병의 에너지를 가득 채워서 하루를 시작합니다.
+&lt;img src=&quot;/img//post/how-to-manage-time//pour-water-1.png&quot; alt=&quot;Pour Bucket&quot; class=&quot;img-responsive&quot; /&gt;
+&lt;img src=&quot;/img//post/how-to-manage-time//pour-water-2.png&quot; alt=&quot;Pour Bucket&quot; class=&quot;img-responsive&quot; /&gt;
+그리고 회사의 양동이에 내가 가진 에너지를 쏟아 붓습니다.
+회의도 하고 미팅도 하고 메일도 보내고 그러면서 말이죠 그리고 퇴근을 하고 집으로 돌아오죠. 그렇게 회사의 양동이에 몇 년째 에너지를 붓다 보면 이런 생각이 들어요.&lt;/p&gt;
+
+&lt;h4 id=&quot;나만의-양동이를-갖고-싶다&quot;&gt;‘나만의 양동이’를 갖고 싶다&lt;/h4&gt;
+
+&lt;p&gt;뭔가 나만의 것 내 일을 하고 싶은 거죠.&lt;br /&gt;
+&lt;img src=&quot;/img//post/how-to-manage-time//empty-bottle.png&quot; alt=&quot;Empty Bottle&quot; class=&quot;img-responsive&quot; /&gt;
+그래서 결국 나의 양동이를 만듭니다. 그리고 다음날 우리는 다시 회사에 양동이를 채웁니다. 그리고 퇴근을 하고 집에 돌아와서 내 양동이를 채우려고 하지만 채울 에너지가 없는 거죠. 이미 회사에서 다 소진을 해 버렸기 때문이에요.&lt;br /&gt;
+그렇게 시간이 흘러서 누군가가 “왜 너의 양동이를 채우지 못했어?”라고 물어보면 “우리는 시간이 없었어”라고 대답을 하죠. 그럼 어떻게 내 양동이를 채울 수 있을까요?&lt;br /&gt;
+&lt;img src=&quot;/img//post/how-to-manage-time//linked-buckets.png&quot; alt=&quot;Linked Buckets&quot; class=&quot;img-responsive&quot; /&gt;
+회사의 양동이와 내 양동이 사이에 파이프를 연결하세요. 이렇게 되면 회사의 양동의 에너지를 부으면 볼수록 내 양동이 에도 똑같이 차 오르겠죠. 그럼 회사의 양동이에 에너지를 붙는게 아깝지 않고 소진되는 느낌도 덜 할겁니다.&lt;br /&gt;
+e.g.1. 저는 회사에서 콘텐츠 마케터로 일했습니다. 그래서 제 에너지의 대부분은 회사에서 콘텐츠를 잘 만드는데 소진을 했죠. 카피를 잘 쓰는 방법을 연구하거나 사람들이 좋아할 만한 콘텐츠를 찾거나. 혹은 매력적인 이미지를 만들기 위해 제 에너지를 소진 햇던 거죠. 그런데 제 양동이는 유튜브를 하는 거잖아요. 제가 회사에서 콘텐츠에 대한 연구를 하면 할수록 제 유튜브를 성장시키는 노하우도 같이 연구가 되고 이 둘은 같이 성장할 수밖에 없는 구조가 됩니다.&lt;/p&gt;
+
+&lt;h4 id=&quot;파이프를-연결--회사의-일과-나의-일-사이의-접점을-만들어-내는-것&quot;&gt;파이프를 연결 = 회사의 일과 나의 일 사이의 접점을 만들어 내는 것&lt;/h4&gt;
+
+&lt;p&gt;e.g.2. 실제 지인의 사례인 데 회사원 a씨는 한 회사에서 서비스 기획자로 일을 합니다. 기획 업무를 하다 보니까 사람들에게 문서로 뭔가를 설명해야 되는 일이 자주 있었어요. 그래서 자연스럽게 문서를 깔끔하게 만드는 스킬이 생겼고 그 스케일의 정리해서 문서 정리 깔끔하게 하는 방법 이라는 강의를 하게 됩니다. 문서 정리 전문가라는 회사은 a 만 의 양동이를 만든 거죠. 이제 회사원 a 씨는 회사에서 하는 기회 커뮤니케이션 업무를 예전보다 더 연구하고 열정을 갖고 하게 되겠죠.&lt;/p&gt;
+
+&lt;h4 id=&quot;아이러니하게도-이렇게-파이퍼-를-연결하면-본업을-더-잘하고-열심히-하게-됩니다&quot;&gt;아이러니하게도 이렇게 파이퍼 를 연결하면 본업을 더 잘하고 열심히 하게 됩니다.&lt;/h4&gt;
+
+&lt;p&gt;회사일에 소홀히 하는거 아니야? 이런 오해들을 받게 되는데요. 그런데 내 양동이를 채워주는 일인데 어떻게 대충 일할 수 있겠어요. 저 또한 누구보다 콘텐츠에 대한 연구를 많이 하고요. 연구할 수 밖에 없죠 내 양동이에 물이 차오르는 게 보이는데. 그래서 부끄럽지만 회사에서 저 상도 받았어요 제가 만약에 소홀이 했다면 이런걸 받을 수가 없었겠죠. 물론 제가 회사의 모든 사람들의 기대를 만족시켜 주지는 못했겠죠. 그래도 이런 상장은 회사 일을 내 일처럼 했기 때문에 받을 수 있었던. 거라고 생각합니다.&lt;/p&gt;
+
+&lt;h4 id=&quot;회사일이-접점이-만들기-쉽지-않은-것일때는&quot;&gt;회사일이 접점이 만들기 쉽지 않은 것일때는?&lt;/h4&gt;
+
+&lt;p&gt;회사일 관해 양동이 사이에 파이프를 연결 시킨 다는거 이제 이해하셨죠? 그런데 여기까지 이야기하면 이런 생각하시는 분들 계실 거에요. 나는 회사에서 전혀 접점을 찾을 수 없는 일을 하고 있어요. 회사에서 단순 반복작업을 하는데 그 일을 양동이로 만들고 싶지 않아요. 에너지가 활용되는 곳에서 접점을 만들어야 합니다. 꼭 회사에서 하는 메인 업무가 아니라 일부의 업무 해서라도 접점을 만들어 보세요. 가령 회사에서 하루에 한 번씩 회의를 한다. 그럼 회의를 잘하는 방법을 연구해서 그걸로 강의를 만드는 거죠. 또 회사에서 주일에 발표를 해야 한다 그럼 그것도 연구에서 강의로 만들고 또 회사에서 메인 업무는 아니지만 가끔 액셀을 한다. 그럼 그것도 연구에서 방위로 만드는 거죠. 그런데 회사일 안에서는 전혀 찾을 수가 없다 라며 뇨 회사 밖의 시간에서 찾는 거예요. 내 여가시간 에서 그 접점을 찾아 본다는 것이죠. 운동을 좋아하시면 운동에 대해 연구 하시고 운동에 관한 양동이를 만드세요. 사진을 찍는 것을 좋아하시면 사진에 대해서 더 연구하신 이고 사진 양동이를 만드시고 글쓰기를 좋아하시면 글쓰기를 더 연구해서 글쓰기 양동이를 만드세요. 어떻게 된 연결을 시키세요.&lt;/p&gt;
+
+&lt;h4 id=&quot;핵심은-리소스관리&quot;&gt;핵심은 리소스관리!&lt;/h4&gt;
+
+&lt;p&gt;저는 이걸 리소스의 관리 라고 부르는데요. 여러분이 쓴 에너지를 딱 하나의 불을 켜는데 쓰지 마시고 연결을 하나 더해서 2개 이상의 불을 켜는데 사용하셨으면 좋겠습니다. 결국 이런게 내가 쓸 수 있는 시간을 효율적으로 관리하고 늘리는 방법이에요.&lt;/p&gt;
+
+&lt;h2 id=&quot;두-번째-에너지의-총량을-늘려라&quot;&gt;두 번째, 에너지의 총량을 늘려라!&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;/img//post/how-to-manage-time//bottle-difference.png&quot; alt=&quot;Bottle Difference&quot; class=&quot;img-responsive&quot; /&gt;
+누구나 에너지를 갖고 있지만 그 양이 모두 같지는 않습니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;니가 이루고 싶은게 있다면 먼저 체력부터 길러라. - 드라마 미생&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;우리가 N잡을 할때 공부를 많이 해야 되는데 체력이 필요합니다. 체력이 없으면 빨리 포기하게 됩니다. 그래서 저도 매일 운동을 하고 에너지의 총량을 늘리려고 애를 씁니다. 그래서 영상 보시고 꼭 헬스에 등록하시고 요 주 3회 이상 운동을 하세요. 헬스가 별로면 매일 10분이라도 걸으세요. 우리가 뭐 3달만에 승부를 본다 이런 거 아니잖아요. 천천히 대신 꾸준하게 지속해야 합니다. 우리는 지지 않는 것보다 지치지 않는 것이 더 중요합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;세번째-낭비되는-에너지-양-최소화&quot;&gt;세번째, 낭비되는 에너지 양 최소화&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;/img//post/how-to-manage-time//leaked-bottle.png&quot; alt=&quot;Leaked Bottle&quot; class=&quot;img-responsive&quot; /&gt;
+이 에너지 라는 것은 어떤 생각을 해서 선택을 하는 즉 의사결정을 할 때 마다 소진이 됩니다. 그래서 작은 의사결정 해도 많은 에너지를 쓰지 않도록 주의해야 되요. 가령 상대방을 지나치게 배려하는 커뮤니케이션을 한다던지 불필요한 체리 인감 선택을 자꾸 미루는 거 인간관계 이런 것들에 에너지를 뺏기게 되면 병의 구멍이 나서 에너지를 흘리게 되는 것과 같아요. 그러다 보면 정작 중요한 일에 에너지를 쓰지 못하는 거죠.
+e.g.3. 예를 들면 은 저는 사람들을 적극적으로 만나지 않아요. 그런 친구가 없어서가 아닐까. 별건 아닌데 암사 아닌데 저는 사람을 만나는데 많은 에너지를 쓰거든요. 그래서 누가 약속을 잡으면 일단 거절을 좀 많이 하는 편이에요. 그렇다고 사람들을 전혀 안 만나는 건 아니고요. 사람들의 꼭 많이 만들어야지 이런 생각은 잘 안해요 제가 제 것을 알아서 잘 하고 있으면 자연스럽게 좋은 사람들이 모이더라구요.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;모두에게 좋은 사람은 이 세상에 있을 수가 없는 것이여. 왜 남한테 장단을 맞추려고 하냐 북치고 장구 치고 니 하고 싶은대로 치다보면 그 장단에 맞추고 싶은 사람들이 와서 춤추는 거여  - 박막례&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;이 글을 읽는 분들 대부분 직장인들이실 텐데 시간 관리/에너지 관리가 정말 중요합니다. 하찮아 보이는 작은 시간들이 쌓여서 멋진 결과를 만든 다는거 항상 기억하시고 하루에 욕심부리지 말고 벽돌 한장 징 만 쌓아서 올리세요. 이제 방법을 아셨습니까 남은건 무엇보다 실행 입니다. 오늘도 실행하시는 하루 되시길 바랍니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;reference&quot;&gt;Reference&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=Tqk6kflCs1U&quot; target=&quot;_blank&quot;&gt;2020-06-23 아마 처음 듣는 얘기일걸요? 심플하게 시간관리 잘하는 법! - N잡하는 허대리&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 18 Jul 2021 00:00:00 -0500</pubDate>
+        <link>http://0.0.0.0:4000/post/how-to-manage-time/</link>
+        <guid isPermaLink="true">http://0.0.0.0:4000/post/how-to-manage-time/</guid>
+        
+        
+        <category>Post</category>
+        
+      </item>
+    
+      <item>
+        <title>How to solve a problem</title>
+        <description>&lt;p&gt;문제인식 2021-06-06
+현상: responsive 오류
+mobile 환경(width: 360px)에서 nav menu와 full width가 안맞는 현상 발생 =&amp;gt; 그로인해 contents 살짝 오른쪽에 여백이 생김
+=&amp;gt; 기존 agency theme에서는 문제없이 작동&lt;/p&gt;
+
+&lt;p&gt;고장탐구1: style.css 훑어보기 =&amp;gt; 뭔가 nav margin-right에 영향을 끼쳤나?
+고장탐구 결과:이상없음… nav class 자체에 margin right 및 github에서 agency.css를 많이 바꾼적 없음…&lt;/p&gt;
+
+&lt;p&gt;고장탐구2: github 이용해서 언제부터 그랬는지 추적 (캡처)
+=&amp;gt; Update portfolio_grid.html and post_grid.html
+=&amp;gt; Docker로 실시간으로 local 업데이트&lt;/p&gt;
+
+&lt;p&gt;문제점: portfolio_grid.html에 Tell me more 버튼을 추가하면서 생긴 오류 어쩌다가 nav menu에 영향을 끼쳤는지…&lt;/p&gt;
+
+&lt;p&gt;Stack: Docker, Jekyll, Github, Git
+Command: git reset –hard &lt;commit_id&gt;&lt;/commit_id&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 06 Jun 2021 00:00:00 -0500</pubDate>
+        <link>http://0.0.0.0:4000/post/skills/how-to-solve-a-problem/</link>
+        <guid isPermaLink="true">http://0.0.0.0:4000/post/skills/how-to-solve-a-problem/</guid>
+        
+        
+        <category>Post</category>
+        
+        <category>Skills</category>
+        
+      </item>
+    
+      <item>
+        <title>Blog History</title>
+        <description>&lt;h3 id=&quot;blog-history&quot;&gt;Blog History&lt;/h3&gt;
+
+&lt;h4 id=&quot;blog-renewal&quot;&gt;Blog Renewal&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Date: 2021-06-06&lt;/li&gt;
+  &lt;li&gt;Basic Theme: Agency Jekyll Blog Theme&lt;/li&gt;
+  &lt;li&gt;Source: &lt;a href=&quot;https://github.com/raviriley/agency-jekyll-theme&quot;&gt;agency-jekyll-theme&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;configure-blog&quot;&gt;Configure Blog&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Date: 2021-05-27&lt;/li&gt;
+  &lt;li&gt;Details: Change BaseURL, Theme&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;set-up-local-environment&quot;&gt;Set Up Local Environment&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Date: 2021-05-28&lt;/li&gt;
+  &lt;li&gt;Stack: Docker, Git&lt;/li&gt;
+  &lt;li&gt;Reference: &lt;a href=&quot;https://jehuipark.github.io/blog/blog-env-setting-with-docker&quot;&gt;Docker Local Envrionment&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;docker-compose.yml code:
+    &lt;pre&gt;&lt;code class=&quot;language-Go&quot;&gt;version: &quot;3.3&quot;
+services:
+jekyll:
+  image: jekyll/jekyll:latest
+  command: jekyll serve --force_polling --drafts --livereload --trace
+  ports:
+    - &quot;4000:4000&quot;
+  volumes:
+    - &quot;.:/srv/jekyll&quot;
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Reference: &lt;a href=&quot;https://www.44bits.io/ko/post/almost-perfect-development-environment-with-docker-and-docker-compose&quot;&gt;Docker Local Environment .yml file&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;add-typed-animation-in-header-introduction&quot;&gt;Add Typed Animation in Header Introduction&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Date: 2021-05-28&lt;/li&gt;
+  &lt;li&gt;Stack: Liquid, Javascript(typed.min.js)&lt;/li&gt;
+  &lt;li&gt;Code:
+    &lt;pre&gt;&lt;code class=&quot;language-Javascript&quot;&gt;&amp;lt;script type=&quot;text/javascript&quot;&amp;gt;
+                  var typed = new Typed('.typed', {
+                      // Waits 1000ms after typing &quot;First&quot;
+                      strings: [
+                          'Developer.',
+                          'Always Student.'
+                      ],
+                      smartBackspace: true,
+                      typeSpeed: 30,
+                      backSpeed: 30,
+                      backDelay: 1000,
+                      loop: true,
+                      loopCount: Infinity
+                  });
+              &amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Result:
+&lt;img src=&quot;http://0.0.0.0:4000/img/post/blog/blog-history/header-typed-animation.gif&quot; alt=&quot;Typed Animation&quot; title=&quot;Logo Title Text 1&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;add-social&quot;&gt;Add Social&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Date: 2021-05-29&lt;/li&gt;
+  &lt;li&gt;Stack: Liquid, Jekyll&lt;/li&gt;
+  &lt;li&gt;Details: StackOverFlow, Github, Linkedin&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;fix-nav-menu-shrink-error&quot;&gt;Fix Nav Menu Shrink Error&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Date: 2021-05-29&lt;/li&gt;
+  &lt;li&gt;Stack: Liquid, Jekyll, Javascript, jQuery&lt;/li&gt;
+  &lt;li&gt;Problem: Nav Bar doesn’t shrink when scroll down.&lt;/li&gt;
+  &lt;li&gt;Cause: In default.html, js.html is moved to the top second position for typed animation.&lt;/li&gt;
+  &lt;li&gt;Solution: In header.html, typed animation script tags is surrounded by document.&lt;/li&gt;
+  &lt;li&gt;Code:
+    &lt;pre&gt;&lt;code class=&quot;language-Javascript&quot;&gt;document.addEventListener(&quot;DOMContentLoaded&quot;, function(event) { });
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;fix-mail-error&quot;&gt;Fix Mail Error&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Date: 2021-05-29&lt;/li&gt;
+  &lt;li&gt;Stack: Liquid, Jekyll, Javascript, HTML, ajax&lt;/li&gt;
+  &lt;li&gt;Problem1: Mail Service doesn’t work.&lt;/li&gt;
+  &lt;li&gt;Cause: Github pages Service only supports static websites, not dynamic website(node.js, php, and etc).&lt;/li&gt;
+  &lt;li&gt;Solution: Use formspree.io service.&lt;/li&gt;
+  &lt;li&gt;Details:
+    &lt;ol&gt;
+      &lt;li&gt;The ‘agency Jekyll theme’ mail service is made by php which is server-side programming language. However, Github pages only supports static html components, so a blog that is serviced by Github pages cannot actually run server side components including node.js, php…. I’ll use formspree.io service
+Formspree.io service only takes json file with special header.&lt;/li&gt;
+      &lt;li&gt;Using Ajax with Formspree.io&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Problem2
+    &lt;ol&gt;
+      &lt;li&gt;Form name missing&lt;/li&gt;
+      &lt;li&gt;Redirect Page missing&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Solution
+    &lt;ol&gt;
+      &lt;li&gt;Add name for each input&lt;/li&gt;
+      &lt;li&gt;Modify url, method, dataType data
+(Formspree only accept json =&amp;gt; CORS policy)
+        &lt;pre&gt;&lt;code class=&quot;language-Javascript&quot;&gt;$.ajax({
+url: &quot;https://formspree.io/f/YOUR_FORM_ID&quot;,
+method: &quot;POST&quot;,
+dataType: &quot;json&quot;,
+data: {
+  email: &quot;a.visitor@email.com&quot;,
+  message: &quot;Hello!&quot;
+}
+});
+&lt;/code&gt;&lt;/pre&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Reference:
+    &lt;ol&gt;
+      &lt;li&gt;&lt;a href=&quot;https://dev.to/charalambosioannou/create-a-static-webpage-with-a-contact-form-on-github-pages-3532&quot;&gt;https://dev.to/charalambosioannou/create-a-static-webpage-with-a-contact-form-on-github-pages-3532&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://dev-yakuza.posstree.com/ko/jekyll/send-email/&quot;&gt;https://dev-yakuza.posstree.com/ko/jekyll/send-email/&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/24348223/send-email-from-static-page-hosted-on-github-pages&quot;&gt;https://stackoverflow.com/questions/24348223/send-email-from-static-page-hosted-on-github-pages&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://jehwanyoo.net/2020/09/28/%EC%A0%95%EC%A0%81-%EC%82%AC%EC%9D%B4%ED%8A%B8(Github%20Pages)%EC%97%90%EC%84%9C-%EC%B5%9C%EC%8B%A0%EA%B8%80-%EB%B6%88%EB%9F%AC%EC%98%A4%EA%B8%B0-%EA%B8%B0%EB%8A%A5-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0/&quot;&gt;https://jehwanyoo.net/2020/09/28/%EC%A0%95%EC%A0%81-%EC%82%AC%EC%9D%B4%ED%8A%B8(Github%20Pages)%EC%97%90%EC%84%9C-%EC%B5%9C%EC%8B%A0%EA%B8%80-%EB%B6%88%EB%9F%AC%EC%98%A4%EA%B8%B0-%EA%B8%B0%EB%8A%A5-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0/&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://help.formspree.io/hc/en-us/articles/360013470814-Submit-forms-with-JavaScript-AJAX-&quot;&gt;https://help.formspree.io/hc/en-us/articles/360013470814-Submit-forms-with-JavaScript-AJAX-&lt;/a&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;add-favicon&quot;&gt;Add Favicon&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Date: 2021-05-31&lt;/li&gt;
+  &lt;li&gt;Stack: Liquid, Jekyll, Javascript, HTML&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;add-biography&quot;&gt;Add Biography&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Date: 2021-05-31&lt;/li&gt;
+  &lt;li&gt;Stack: Liquid, Jekyll, Javascript, HTML&lt;/li&gt;
+  &lt;li&gt;Details: Agency Jekyll Theme had about section, but I replace it with biography section&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;write-short-about&quot;&gt;Write Short About&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Date: 2021-06-01&lt;/li&gt;
+  &lt;li&gt;Stack: Liquid, Jekyll, Javascript, HTML&lt;/li&gt;
+  &lt;li&gt;Details: Modify About Description&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;add-resume-button&quot;&gt;Add Resume Button&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Date: 2021-06-01&lt;/li&gt;
+  &lt;li&gt;Stack: Liquid, Jekyll, Javascript, HTML&lt;/li&gt;
+  &lt;li&gt;Details: Add Resume Button in about section&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;fix-font-size-error&quot;&gt;Fix Font Size Error&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Date: 2021-06-02&lt;/li&gt;
+  &lt;li&gt;Stack: Liquid, Jekyll, Javascript, HTML&lt;/li&gt;
+  &lt;li&gt;Details:
+    &lt;ul&gt;
+      &lt;li&gt;Add custom.css for responsive css&lt;/li&gt;
+      &lt;li&gt;Add in style tag&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;{% include css/custom.css %}&lt;/p&gt;
+
+&lt;h4 id=&quot;seperate-post-and-portfolio&quot;&gt;Seperate Post and Portfolio&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Date: 2021-06-05&lt;/li&gt;
+  &lt;li&gt;Stack: Liquid, Jekyll, Javascript, HTML&lt;/li&gt;
+  &lt;li&gt;Details:
+    &lt;ol&gt;
+      &lt;li&gt;Using Jekyll Default Function “Category”&lt;/li&gt;
+      &lt;li&gt;Add Category to Markdown File (e.g. Post, Portfolio)&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;seperate-defaulthtml-and-indexhtml&quot;&gt;Seperate default.html and index.html&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Date: 2021-06-05&lt;/li&gt;
+  &lt;li&gt;Stack: Liquid, Jekyll, Javascript, HTML&lt;/li&gt;
+  &lt;li&gt;Details:
+    &lt;ol&gt;
+      &lt;li&gt;Seperate default template and index.html for the purpose for Scalable Static Website&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;create-post_gridhtml&quot;&gt;Create post_grid.html&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Date: 2021-06-05&lt;/li&gt;
+  &lt;li&gt;Stack: Liquid, Jekyll, Javascript, HTML&lt;/li&gt;
+  &lt;li&gt;Details:
+    &lt;ol&gt;
+      &lt;li&gt;Create post_grid.html&lt;/li&gt;
+      &lt;li&gt;Add Liquid If statement to Filter Post only
+```&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;```&lt;/p&gt;
+
+&lt;h4 id=&quot;update-customcss&quot;&gt;Update custom.css&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Date: 2021-06-05&lt;/li&gt;
+  &lt;li&gt;Stack: Liquid, Jekyll, Javascript, HTML&lt;/li&gt;
+  &lt;li&gt;Details:
+    &lt;ol&gt;
+      &lt;li&gt;Modify custom.css for style for post&lt;/li&gt;
+      &lt;li&gt;Change portfolio style to post style&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;fix-hover-color-error&quot;&gt;Fix Hover Color Error&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Date: 2021-06-05&lt;/li&gt;
+  &lt;li&gt;Stack: Liquid, Jekyll, Javascript, HTML&lt;/li&gt;
+  &lt;li&gt;Details:
+    &lt;ol&gt;
+      &lt;li&gt;Modify agency.css&lt;/li&gt;
+      &lt;li&gt;Modify custom.css&lt;/li&gt;
+      &lt;li&gt;Modify rgba&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;add-tell-me-more-button-in-portfolio-and-post-section&quot;&gt;Add Tell me more button in portfolio and post section&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Date: 2021-06-05&lt;/li&gt;
+  &lt;li&gt;Stack: Liquid, Jekyll, Javascript, HTML&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;seperate-nav-and-header&quot;&gt;Seperate nav and header&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Date: 2021-06-05&lt;/li&gt;
+  &lt;li&gt;Stack: Liquid, Jekyll, Javascript, HTML&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;change-nav-background-from-transparent-to-222&quot;&gt;Change Nav background from transparent to #222&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Date: 2021-06-05&lt;/li&gt;
+  &lt;li&gt;Stack: Liquid, Jekyll, Javascript, HTML&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;create-nav_home-and-nav_detail&quot;&gt;Create nav_home and nav_detail&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Date: 2021-06-05&lt;/li&gt;
+  &lt;li&gt;Details:
+    &lt;ol&gt;
+      &lt;li&gt;Seperate nav.html into nav_home and nav_detail for detailed homepage&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;modify-layout&quot;&gt;Modify layout&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Date: 2021-06-05&lt;/li&gt;
+  &lt;li&gt;Details:
+    &lt;ol&gt;
+      &lt;li&gt;Modify layout default&lt;/li&gt;
+      &lt;li&gt;Create layout detail&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;create-detail-pages&quot;&gt;Create Detail pages&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Date: 2021-06-05&lt;/li&gt;
+  &lt;li&gt;Details:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;fix-recent-portfolio-and-post-limit-error&quot;&gt;Fix Recent Portfolio and Post Limit Error&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Date: 2021-06-05&lt;/li&gt;
+  &lt;li&gt;Details:
+    &lt;ol&gt;
+      &lt;li&gt;Use assign statement to filter only portfolios from posts.&lt;/li&gt;
+      &lt;li&gt;Limit show only 6 Portfolios&lt;/li&gt;
+      &lt;li&gt;Use assign statement to filter only posts from all posts + portfolios.&lt;/li&gt;
+      &lt;li&gt;Limit show only 6 Posts&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;fix-margin-right-error&quot;&gt;Fix Margin right Error&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Date: 2021-06-06&lt;/li&gt;
+  &lt;li&gt;Problem: Contents doesn’t fit to the full width in Mobile Environment(width:360px)&lt;/li&gt;
+  &lt;li&gt;Cause: Using &amp;lt;div class=&quot;row&quot;&amp;gt; inside a div with row class&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;change-post-markdown-layout&quot;&gt;Change Post Markdown Layout&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Date: 2021-06-06
+    &lt;ol&gt;
+      &lt;li&gt;Change Post Markdown Layout from default to detail&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Purpose: Generate Links in Detail Homepage&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;focusing-on-posting-after&quot;&gt;Focusing on Posting after…&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Date: 2021-06-08&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;remove-empty-spaces-in-grid&quot;&gt;Remove Empty Spaces in Grid&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Date: 2021-06-21&lt;/li&gt;
+  &lt;li&gt;Problem: 2 Empty Spaces after third columns&lt;/li&gt;
+  &lt;li&gt;Cause: The length of title&lt;/li&gt;
+  &lt;li&gt;Solve: Modify Grid System from col-md-4 to col-md-6&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Thu, 27 May 2021 00:00:00 -0500</pubDate>
+        <link>http://0.0.0.0:4000/post/blog/blog-history/</link>
+        <guid isPermaLink="true">http://0.0.0.0:4000/post/blog/blog-history/</guid>
+        
+        
+        <category>Post</category>
+        
+        <category>Blog</category>
+        
+      </item>
+    
+      <item>
+        <title>Diary 2021-05-07</title>
+        <description>&lt;h3 id=&quot;오늘-한일-2021-05-07&quot;&gt;오늘 한일 2021-05-07&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Docker 공부
+    &lt;ul&gt;
+      &lt;li&gt;container, docker run, docker compose up&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Git bash CLI 명령어 공부
+    &lt;ul&gt;
+      &lt;li&gt;git clone (url)&lt;/li&gt;
+      &lt;li&gt;git add .&lt;/li&gt;
+      &lt;li&gt;git status&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;개발자가-mac을-쓰는-이유&quot;&gt;개발자가 mac을 쓰는 이유&lt;/h3&gt;
+
+&lt;p&gt;애플 제품을 쓰는것이 현세대에서 허영, 사치 등의 이미지로 프레임화 되고있다.
+주관적인 관점에서 효용&amp;gt;=가격이라면 허영 혹은 사치가 아니다.&lt;/p&gt;
+
+&lt;p&gt;많은 개발자들이 mac을 선호하며 사용하고있는데, 이는 windows PC는 소비재로써 mac은 자본재로 주로 용이하게 사용되기 때문이다.
+자본재는 자본재 프리미엄(e.g. Apple tax)가 붙는다.
+Windows PC는 다양한 하드웨어 조합이 가능하므로 고성능 하드웨어의 조합이 요구될 때 유리하다. 하지만 그로 인해 무한대의 조합의 하드웨어에 소프트웨어를 최적화시켜야하므로 개발이 어렵다. 심지어 프로그래밍 언어도 많다.
+개발자의 입장에서 봤을때 mac의 생태계는 폐쇄적이지만 일관적이고 xCode라는 단일화된 툴을 사용하여 개발을 진행하므로 Windows 생태계보다 유리한 점이 있다.&lt;/p&gt;
+
+&lt;p&gt;결론: 내가 원하는 목적과 기능에 맞게 개발환경을 구현하자.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 07 May 2021 00:00:00 -0500</pubDate>
+        <link>http://0.0.0.0:4000/post/diary/</link>
+        <guid isPermaLink="true">http://0.0.0.0:4000/post/diary/</guid>
+        
+        
+        <category>Post</category>
+        
+      </item>
+    
+      <item>
+        <title>Rium Salon Website</title>
+        <description>&lt;h1 id=&quot;rium-salon-website&quot;&gt;RIUM SALON WEBSITE&lt;/h1&gt;
+</description>
+        <pubDate>Fri, 12 Mar 2021 00:00:00 -0600</pubDate>
+        <link>http://0.0.0.0:4000/portfolio/project-rium-salon-website/</link>
+        <guid isPermaLink="true">http://0.0.0.0:4000/portfolio/project-rium-salon-website/</guid>
+        
+        
+        <category>Portfolio</category>
+        
+      </item>
+    
+      <item>
+        <title>Git &amp; Github Basics</title>
+        <description>&lt;h3 id=&quot;git이란&quot;&gt;Git이란?&lt;/h3&gt;
+&lt;p&gt;버전을 편리하게 관리할 수 있도록 도와주는 대중적이고 전문적인 도구&lt;br /&gt;
+e.g. 우리가 타임머신을 타고 원하는 순간으로 가고 싶은 것처럼, 우리가 작업하고 있는 파일들을 원하는 순간으로 다시 돌아갈 수 있게 만들어주는 도구&lt;/p&gt;
+
+&lt;h3 id=&quot;깃-사용방법&quot;&gt;깃 사용방법&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;Terminal: Original Git - Command based program (Mac: iterm, Windows: cmder 추천!)&lt;/li&gt;
+  &lt;li&gt;GUI Application
+    &lt;ul&gt;
+      &lt;li&gt;Source Tree: 대중적인 도구&lt;/li&gt;
+      &lt;li&gt;Github desktop: 기능 많이 없음&lt;/li&gt;
+      &lt;li&gt;Git kraken: 멋진 UI&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;깃-기본-명령어-windows-terminal&quot;&gt;깃 기본 명령어 (Windows Terminal)&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;git – version: 깃 버전확인&lt;/li&gt;
+  &lt;li&gt;git config – list: 깃 설정 확인&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;초기설정&quot;&gt;초기설정&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;.gitconfig 파일: 모든 환경설정
+    &lt;ul&gt;
+      &lt;li&gt;git config – global core.editor “code [–wait]”: Text Editor로 연결해서 Git을 사용하는것도 가능&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;git config –global user.name “username”&lt;/li&gt;
+  &lt;li&gt;git config –global user.email “email@example.com”&lt;/li&gt;
+  &lt;li&gt;git config –global core.autocrlf true
+    &lt;ul&gt;
+      &lt;li&gt;Text editor에서 Windows에서는 text \r\n (line feed) 동시에 들어감, Mac에서는 text\n (line feed) 만 들어감. (\r = carriage return)&lt;/li&gt;
+      &lt;li&gt;다양한 운영체제에서 git 사용시 git history에 보는데 문제가 생길 수 있음&lt;/li&gt;
+      &lt;li&gt;맥도 따로 처리 해주는 이유는 이메일에서 내용 복사해올 시에 \r이 자동으로 들어갈 수도 있음&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;깃-초기화삭제하기&quot;&gt;깃 초기화/삭제하기&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;mkdir git&lt;/li&gt;
+  &lt;li&gt;git init: git project 시작&lt;/li&gt;
+  &lt;li&gt;rm -rf .git: git project 삭제&lt;/li&gt;
+  &lt;li&gt;git status: git status check&lt;/li&gt;
+  &lt;li&gt;git config –global alias.”shorthand” “command”: shorthand type command configuration&lt;/li&gt;
+  &lt;li&gt;git config –h: command helper&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;git-working-flow-file-status&quot;&gt;Git working flow (file status)&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;Working directory: file modifying, working space
+    &lt;ul&gt;
+      &lt;li&gt;Untracked&lt;/li&gt;
+      &lt;li&gt;Tracked: Tracked by version history(commit)
+        &lt;ul&gt;
+          &lt;li&gt;Unmodified:&lt;/li&gt;
+          &lt;li&gt;Modified: Allow to ‘add’ to staging area&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Staging area: files get ready to commit version history&lt;/li&gt;
+  &lt;li&gt;.git directory: git version history record
+    &lt;ul&gt;
+      &lt;li&gt;Local repository: My computer&lt;/li&gt;
+      &lt;li&gt;Remote repository: github server&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Tip. Commit components
+    &lt;ul&gt;
+      &lt;li&gt;Name, date, time, file…&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;git-add&quot;&gt;git add&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;How to commit
+    &lt;ul&gt;
+      &lt;li&gt;git add “filename.type”: add to staging area&lt;/li&gt;
+      &lt;li&gt;Untracked files or tracked&amp;amp;modified files&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;How to remove commit(or add)
+    &lt;ul&gt;
+      &lt;li&gt;git rm –cashed “filename”&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;E.g. If a.txt has been added to staging area with git add * and deleted in working area. the result of git status is including a.txt. However, if we use git add . after the file is deleted, the deleted file is removed from the staging area.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;git-ignore-tracking-하고-싶지-않은-파일eg-log&quot;&gt;git ignore: tracking 하고 싶지 않은 파일(e.g. log)&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;.gitignore 숨겨진 파일 생성 후 텍스트 파일에 commit하고 싶지않은 파일들 제목을 올린다.
+    &lt;ul&gt;
+      &lt;li&gt;echo *.log &amp;gt; .gitignore =&amp;gt; add 가능한 목록에서 사라짐&lt;/li&gt;
+      &lt;li&gt;gitignore 파일안에 특정 디렉토리 or 특정 format을 가진 파일들을 넣어서 제외시킬 수 있음.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;git-status-작업사항-간단히-확인&quot;&gt;git status: 작업사항 간단히 확인&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;git status –long:&lt;/li&gt;
+  &lt;li&gt;git status –s: A (add), ??: working directory untracked&lt;/li&gt;
+  &lt;li&gt;git status –[option]:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;git-diff-working-directory에서-변경사항&quot;&gt;git diff: working directory에서 변경사항&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;command cat command: 파일 내용 확인&lt;/li&gt;
+  &lt;li&gt;git diff –staged(or –cached):&lt;/li&gt;
+  &lt;li&gt;git difftool: tool을 이용하여 git diff 조회 (git config –global -e를 통해 editor를 설정후 사용 가능)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;first-commit&quot;&gt;First commit&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;구성
+    &lt;ul&gt;
+      &lt;li&gt;Title&lt;/li&gt;
+      &lt;li&gt;Description&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Git log:git log 확인&lt;/li&gt;
+  &lt;li&gt;Git add . 후 git commit 후 vscode 이용하여 Title, description 추가 후 닫으면 자동으로 commit&lt;/li&gt;
+  &lt;li&gt;파일 수정 후 git add . 후 git commit -m “commit name” 입력하면 따로 vscode 실행하지 않고 바로 commit 가능 (-m [message option])&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;git-commit-팁&quot;&gt;Git commit 팁&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;규모?
+    &lt;ul&gt;
+      &lt;li&gt;History에는 작은 단위로 나눠서 저장하는게 좋음&lt;/li&gt;
+      &lt;li&gt;현재, 동사원형으로&lt;/li&gt;
+      &lt;li&gt;각 commit에 해당되는 내용만 포함할 것&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;E.g. initialize project, add loginservice module, =&amp;gt; 의미있는 청크 덩어리로 작업한 내용 commit할 것&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;source&quot;&gt;Source&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=Z9dvM7qgN9s&quot; target=&quot;_blank&quot;&gt;2020-11-17 깃, 깃허브 제대로 배우기 - 드림코딩 by 엘리&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Fri, 18 Dec 2020 00:00:00 -0600</pubDate>
+        <link>http://0.0.0.0:4000/post/git-github-basics/</link>
+        <guid isPermaLink="true">http://0.0.0.0:4000/post/git-github-basics/</guid>
+        
+        
+        <category>Post</category>
+        
+      </item>
+    
+      <item>
+        <title>Which Blog platform?</title>
+        <description>&lt;p&gt;나는 게으른 사람이다. 그래도 가끔은 기록을 하려 블로그를 운영했었다.&lt;/p&gt;
+
+&lt;p&gt;2013년까지는 티스토리를 썼었고&lt;/p&gt;
+
+&lt;p&gt;군생활 할때에는 시덥잖은 내용으로 네이버 블로그를 채우다&lt;/p&gt;
+
+&lt;p&gt;전역이후에는 워드프레스를 설치해서 운영해왔다.&lt;/p&gt;
+
+&lt;p&gt;최근에는 내가 겪고 있는 문제를 해결하기 위해 관련된 키워드로 검색하다가 Github pages를 이용해&lt;/p&gt;
+
+&lt;p&gt;Today I learned (TIL)이라는 주제로 운영되는 기술 블로그를 알게되었다.&lt;/p&gt;
+
+&lt;p&gt;매일 매일 배우는것을 마크다운 언어로 포스팅하다니.. 부지런함에 경외로움을 느꼈다.&lt;/p&gt;
+
+&lt;p&gt;그간 게으르다 못해 포스팅 주기가 개월단위로 넘어가는 나에게 경종이 울린듯 신선한 충격이었다.&lt;/p&gt;
+
+&lt;p&gt;그래서 나도 Github Pages로 오늘 배운것을 기록하려고 이것저것 해보다&lt;/p&gt;
+
+&lt;p&gt;결국 근본은 Github Pages가 아닌 ‘오늘 배운것은 나의 자산이며 이것을 잃지 않기위해 기록’하는것 이었기에,&lt;/p&gt;
+
+&lt;p&gt;블로그 플랫폼들을 다시 비교해보고 고민해보게 되었다.&lt;/p&gt;
+
+&lt;p&gt;다음은 내가 개발자 블로그로써, 각 블로그마다의 장점과 단점을 비교한 부분들이다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;github-pages&quot;&gt;Github Pages&lt;/h3&gt;
+
+&lt;h4 id=&quot;pros&quot;&gt;Pros&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;여러가지 Jekyll 테마를 지원해서 디자인 선택의 폭이 넓음&lt;/li&gt;
+  &lt;li&gt;Github 에 Commit함으로써 포스팅을 하게되므로 개발이 아니더라도 포스팅시 Github profiles에 커밋내역이 남음&lt;/li&gt;
+  &lt;li&gt;개발자로써 다른 서비스를 사용하지 않고 Github Page로 블로그를 운영한다는 약간의 자부심(?)&lt;/li&gt;
+  &lt;li&gt;커스텀 도메인 사용가능&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;cons&quot;&gt;Cons&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Disqus 등을 통해 댓글기능을 추가할 수 있지만 누가 댓글을 달면 따로 push메세지 등을 통해 알려주지 않음&lt;/li&gt;
+  &lt;li&gt;Markdown언어를 통해서만 포스팅이 가능함. 글자에 색깔넣고 강조하고 이쁘게 만들고 싶은 블로거라면 가장 큰 단점이 될 수 있음&lt;/li&gt;
+  &lt;li&gt;가끔 Github pages 가 점검을 하게되는데 이때 정상적인 접근이 안됨. &lt;br /&gt;
+-&amp;gt; 점검시 Github Pages기능으로 호스팅되는 오픈소스 Documetation 페이지들도 접속안됨..&lt;/li&gt;
+  &lt;li&gt;작성을 하기위해선 물리적인 키보드가 있어야 편리함 (모바일에서 일일이 마크다운으로 언제 입력하나..?)&lt;/li&gt;
+  &lt;li&gt;임시저장을 하기위해선 PC환경에서만 가능. (Git 커밋작업이 꼭 필요함)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;물론 세팅을 하면 되는부분도 있고 안되는 부분도 있지만 글을 한번 쓰기위해서 손이 매우 많이가는 부분은 어쩔수 없음.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;wordpress-직접-호스팅&quot;&gt;WordPress (직접 호스팅)&lt;/h3&gt;
+
+&lt;h4 id=&quot;pros-1&quot;&gt;Pros&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;워드프레스의 여러 플러그인과 아름다운 테마를 사용할 수 있다. 선택의 폭이 넓음&lt;/li&gt;
+  &lt;li&gt;CSS 수정과 여러 기능적인 부분들에 대한 커스터마이징이 가능&lt;/li&gt;
+  &lt;li&gt;비교적 쉬운 SEO (검색엔진 최적화) 세팅&lt;/li&gt;
+  &lt;li&gt;입맛에 맞게 세팅이 가능함&lt;/li&gt;
+  &lt;li&gt;데이터 백업과 복원이 자유롭고 비교적 간편&lt;/li&gt;
+  &lt;li&gt;임시저장 가능&lt;/li&gt;
+  &lt;li&gt;하나의 글을 쓸 때 복수의 카테고리 설정가능&lt;/li&gt;
+  &lt;li&gt;커스텀 도메인 사용가능&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;cons-1&quot;&gt;Cons&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;플러그인을 여러개 쓰면 엄청 느려짐 (페이지 로드하는데 오랜 시간이 걸림)&lt;/li&gt;
+  &lt;li&gt;따라서 고성능의 서버가 필요하게 될 수 있음 (비용의 증가)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;직접 세팅한 서버위에 올릴경우, 서버 장애시  복구작업을 직접 해야함. 덤으로 복구작업동안 접속이 안됨&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;워드프레스에서 티스토리로 옮기게 된 결정적 이유. Google 크롤러는 주기적으로 내 블로그를 탐색하는데, 이때 접근이 되지 않으면 검색에서 노출될 확률이 적어진다. 지금까지 운영했던 워드프레스도 장애가 몇번 났는데, 이 문제로 내 블로그는 더이상 구글 검색에서 노출되지 않게되었다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;tistory&quot;&gt;Tistory&lt;/h3&gt;
+
+&lt;h4 id=&quot;pros-2&quot;&gt;Pros&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;직접 서버를 운영하지 않으므로 서버운영에 대해 신경꺼도 상관없음
+장애율이 적음&lt;/li&gt;
+  &lt;li&gt;티스토리에서 지원하는 에디터를 사용하면 글 꾸미기가 지원됨 (가장 익숙함)&lt;/li&gt;
+  &lt;li&gt;최근에는 마크다운 에디터를 제공해주기 까지 함 (익숙한 사람들에게는 최고)&lt;/li&gt;
+  &lt;li&gt;임시저장 가능&lt;/li&gt;
+  &lt;li&gt;워드프레스 만큼은 아니지만 입맛대로 수정할 수 있음&lt;/li&gt;
+  &lt;li&gt;CSS 수정으로 UI 커스터마이징이 가능&lt;/li&gt;
+  &lt;li&gt;커스텀 도메인 사용가능&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;cons-2&quot;&gt;Cons&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;데이터 백업과 복원에 대해 자유롭지 않음(예전에는 xml내보내기가 가능했는데..)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;결국 내 데이터가 아님.&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;작성한 게시글과 블로그를 내것이라 생각할 수 있지만, 만약 티스토리가 갑자기 서비스 종료공지를 올린다면? 데이터는 영원히 보존되지 않을것이다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;del&gt;아직도 2010년 초기에 머물러 있는 에디터&lt;/del&gt; (티스토리 팀에서 에디터를 개선하기 위해 부단한 노력을 하고있음!)&lt;/li&gt;
+  &lt;li&gt;비교적 폐쇄적임&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;번외&lt;/p&gt;
+
+&lt;h3 id=&quot;naver-blog&quot;&gt;Naver Blog&lt;/h3&gt;
+
+&lt;h4 id=&quot;pros-3&quot;&gt;Pros&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;대부분의 티스토리의 장점과 유사&lt;/li&gt;
+  &lt;li&gt;에디터에 코드를 추가할 수 있게 되어 본문 내 가독성 높은 코드 첨부가 가능하다&lt;/li&gt;
+  &lt;li&gt;댓글/방명록 등 포스팅한 게시글의 피드백에 대해 push 알림 연동이 잘되어있음&lt;/li&gt;
+  &lt;li&gt;‘이웃’ 시스템으로 네이버 블로그에 포스팅하는 개발자간 정보공유&amp;amp;친목 가능&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;cons-3&quot;&gt;Cons&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;하지만 단점 또한 티스토리의 단점과 유사하고
+Code Highlighting 이 되지 않아 샘플 코드를 첨부할때 되게 못나짐&lt;/li&gt;
+  &lt;li&gt;colorscripter.com 사용시 어느정도 해결은 가능&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;네이버 플랫폼에 종속됨 (중요)&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;폐쇄적임&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;이외에 Medium, steemit, brunch 등의 블로그는 개발자 친화적이지 않아 비교대상에서 제외했습니다.
+참고바랍니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;결국 글 쓸때 제일 편하고, 장애율이 낮고, SEO가 그럭저럭 되는 티스토리가 제일 최적이라고 느꼈다.
+사실 본인에게 제일 익숙한것이 티스토리이기도 했고…
+제일 중요한건 어떤 블로그 플랫폼이냐가 아니라 어떤 글을 쓰냐가 중요하기에 티스토리로 정착하게 되었다.&lt;/p&gt;
+
+&lt;p&gt;이제 오늘부터, 가능한 한 1일 1포스팅으로 배운것들을 기록하려 노력하겠다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;source&quot;&gt;Source&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://luiseok.com/2&quot;&gt;https://luiseok.com/2&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 01 Sep 2020 00:00:00 -0500</pubDate>
+        <link>http://0.0.0.0:4000/post/which-blog-platform/</link>
+        <guid isPermaLink="true">http://0.0.0.0:4000/post/which-blog-platform/</guid>
+        
+        
+        <category>Post</category>
+        
+      </item>
+    
+      <item>
+        <title>Move Git repository</title>
+        <description>&lt;h1 id=&quot;내-저장소에-있는-모든-파일들을-통째로-다른-repository로-옮기고-싶을-때---github&quot;&gt;내 저장소에 있는 모든 파일들을 통째로 다른 repository로 옮기고 싶을 때! - Github&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;아직 Git을 잘 모르는 상태인데( 특히 branch..) BoostCamp Git이 만들어졌어요.&lt;/p&gt;
+
+&lt;p&gt;이제 내 개인의 저장소가 아닌, 이 곳에서 add, commit, push 작업을 진행하게 될 것 같아요 .&lt;/p&gt;
+
+&lt;p&gt;“하지만 나는 내 저장소에만 저장해놨는데…이걸 그대로 commit이력까지 복사해서 통째로 다른 저장소로 옮길 방법이 없을까?”라는 궁금증이 들었어요!&lt;/p&gt;
+
+&lt;p&gt;Git초보자 에게는 어려울수도 있으니 ( 처음에 저한테는 너무 어려웠어요 ㅠㅠ )방법을 공유해보려고 해요: )&lt;/p&gt;
+
+&lt;p&gt;잘 따라하면 쉬우니 다들 따라해보세요!&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;먼저 &lt;strong&gt;옮기고 싶은&lt;/strong&gt; (지금은 제 저장소) &lt;strong&gt;저장소 https 주소&lt;/strong&gt;를 복사주세요!!&lt;/p&gt;
+
+&lt;p&gt;제 저장소 https주소를 보는법은 git에서도 볼 수 있지만 터미널로도 볼 수 있어요.&lt;/p&gt;
+
+&lt;p&gt;현재 내가 연결되어있는 Git을 보려면 git remote 를 터미널창에 입력해주세요.&lt;/p&gt;
+
+&lt;p&gt;자세히 보고싶으시다면 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git remote -v&lt;/code&gt;를 입력해주세요.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://0.0.0.0:4000/assets/images/post/2020/08/27/2020-08-27-how-to-move-a-full-git-repository-with-commit-history/01. Type git remote -v.png&quot; alt=&quot;img&quot; class=&quot;align-center&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;여기가 제 저장소 랍니다. :)&lt;/p&gt;
+
+&lt;p&gt;원하시는 방법으로 현재 제 저장소의 https주소를 복사했다면, 밑의 커맨드라인에서 주소부분만 바꾸어 터미널창에 입력해주세요.&lt;/p&gt;
+
+&lt;p&gt;​	&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git clone --mirror https://example.git&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://0.0.0.0:4000/assets/images/post/2020/08/27/2020-08-27-how-to-move-a-full-git-repository-with-commit-history/02. Type git clone --mirror.png&quot; alt=&quot;img&quot; class=&quot;align-center&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이렇게요!!&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;그리고 다시 remote를 하여 ‘길’을 만들어주는 작업을 할 겁니다.&lt;/p&gt;
+
+&lt;p&gt;이제 저는 제 저장소가 아닌 다른 저장소에서 작업을 한다고 그랬죠?&lt;/p&gt;
+
+&lt;p&gt;그러면 제가 소스코드를 수정하고 다시 add, commit, push했을 때, 제 저장소가 아닌 새로운 저장소에 작업이 수행되어야 겠죠??&lt;/p&gt;
+
+&lt;p&gt;그러면 우리는 &lt;strong&gt;제 로컬Git&lt;/strong&gt;과 &lt;strong&gt;새 repository&lt;/strong&gt;를 &lt;strong&gt;연결&lt;/strong&gt;해주는 ‘길’을 만들어야해요. 그럴려면 제가 올릴 소스코드 들이 있는 곳으로 이동해야겠죠? 저는 아예 처음부터 제 제가 올릴 소스코드가 있는 곳에서 작업을 했답니다. 아닌 분들은 cd명령어를 통해 디렉토리를 꼭 이동해주세요!!!&lt;/p&gt;
+
+&lt;p&gt;그리고 우리가 옮길 &lt;strong&gt;새로운 저장소의 https주소&lt;/strong&gt;를 복사해주고,&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git remote set-url --push origin https://example&lt;/code&gt;을 터미널창에 입력해주세요&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://0.0.0.0:4000/assets/images/post/2020/08/27/2020-08-27-how-to-move-a-full-git-repository-with-commit-history/03. Type git remote set-url --push origin.png&quot; alt=&quot;img&quot; class=&quot;align-center&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이렇게요 :) 이제 ‘길’이 만들어진거랍니다XD&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;이제 마지막으로 push를 해야겠죠?&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git push --mirror&lt;/code&gt;를 터미널창에 입력해주세요.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://0.0.0.0:4000/assets/images/post/2020/08/27/2020-08-27-how-to-move-a-full-git-repository-with-commit-history/04. Type git push --mirror.png&quot; alt=&quot;img&quot; class=&quot;align-center&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이러면 제 원래 저장소에 있던 모든 파일과 commit이력까지 새로운 저장소로 옮겨지게 된답니다 XD&lt;/p&gt;
+
+&lt;p&gt;Git은 간편하면서도 어려운 것 같아요. 저도 아직 Git 초보라 배워야 할게 정말 많은 것 같아요.&lt;/p&gt;
+
+&lt;p&gt;이제 길이 새로운 곳으로 잘 만들어졌나 확인해 볼까요?  위에서 처럼 remote명령어를 통해 확인해 볼게요.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://0.0.0.0:4000/assets/images/post/2020/08/27/2020-08-27-how-to-move-a-full-git-repository-with-commit-history/05. Type git remote.png&quot; alt=&quot;img&quot; class=&quot;align-center&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;새로운 저장소로 바뀐 게 보이시나요? ㅎㅎ&lt;/p&gt;
+
+&lt;p&gt;잘 따라하시고 도움이 되었으면 좋겠어요 :)&lt;/p&gt;
+
+&lt;p&gt;ps. 제목을 쓰다가 헷갈려서 찾아본건데 통채로가 아니라 통째로가 맞는 표현이네요 :) 통채로는 통째로의 비표준어라 하니 주의해서 써야겠어요.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;sources&quot;&gt;Sources&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;https://zeddios.tistory.com/5&lt;/li&gt;
+  &lt;li&gt;https://stackoverflow.com/questions/17371150/moving-git-repository-content-to-another-repository-preserving-history&lt;/li&gt;
+  &lt;li&gt;https://www.atlassian.com/git/tutorials/git-move-repository&lt;/li&gt;
+  &lt;li&gt;https://itnext.io/git-repository-transfer-keeping-all-history-670fe04cd5e4&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Thu, 27 Aug 2020 00:00:00 -0500</pubDate>
+        <link>http://0.0.0.0:4000/post/move-git-repository/</link>
+        <guid isPermaLink="true">http://0.0.0.0:4000/post/move-git-repository/</guid>
+        
+        
+        <category>Post</category>
+        
+      </item>
+    
+      <item>
+        <title>Commit Message</title>
+        <description>&lt;h1 id=&quot;commit-message-guidelines&quot;&gt;Commit Message Guidelines&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;overview&quot;&gt;Overview&lt;/h3&gt;
+
+&lt;p&gt;Short (72 chars or less) summary&lt;/p&gt;
+
+&lt;p&gt;More detailed explanatory text. Wrap it to 72 characters. The blank
+line separating the summary from the body is critical (unless you omit
+the body entirely).&lt;/p&gt;
+
+&lt;p&gt;Write your commit message in the imperative: “Fix bug” and not “Fixed
+bug” or “Fixes bug.” This convention matches up with commit messages
+generated by commands like git merge and git revert.&lt;/p&gt;
+
+&lt;p&gt;Further paragraphs come after blank lines.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bullet points are okay, too.&lt;/li&gt;
+  &lt;li&gt;Typically a hyphen or asterisk is used for the bullet, followed by a
+single space. Use a hanging indent.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;example-for-a-commit-message&quot;&gt;Example for a commit message&lt;/h3&gt;
+
+&lt;p&gt;​	&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Add CPU arch filter scheduler support&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;​	&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;In a mixed environment of…&lt;/code&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;a-properly-formed-git-commit-subject-line-should-always-be-able-to-complete-the-following-sentence&quot;&gt;A properly formed git commit subject line should always be able to complete the following sentence&lt;/h3&gt;
+
+&lt;p&gt;If applied, this commit will &lt;em&gt;&amp;lt;your subject line here&amp;gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;rules-for-a-great-git-commit-message-style&quot;&gt;Rules for a great git commit message style&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Separate subject from body with a blank line&lt;/li&gt;
+  &lt;li&gt;Do not end the subject line with a period&lt;/li&gt;
+  &lt;li&gt;Capitalize the subject line and each paragraph&lt;/li&gt;
+  &lt;li&gt;Use the imperative mood in the subject line&lt;/li&gt;
+  &lt;li&gt;Wrap lines at 72 characters&lt;/li&gt;
+  &lt;li&gt;Use the body to explain what and why you have done something. In most cases, you can leave out details about how a change has been made.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;information-in-commit-messages&quot;&gt;Information in commit messages&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Describe why a change is being made.&lt;/li&gt;
+  &lt;li&gt;How does it address the issue?&lt;/li&gt;
+  &lt;li&gt;What effects does the patch have?&lt;/li&gt;
+  &lt;li&gt;Do not assume the reviewer understands what the original problem was.&lt;/li&gt;
+  &lt;li&gt;Do not assume the code is self-evident/self-documenting.&lt;/li&gt;
+  &lt;li&gt;Read the commit message to see if it hints at improved code structure.&lt;/li&gt;
+  &lt;li&gt;The first commit line is the most important.&lt;/li&gt;
+  &lt;li&gt;Describe any limitations of the current code.&lt;/li&gt;
+  &lt;li&gt;Do not include patch set-specific comments.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Details for each point and good commit message examples can be found on &lt;a href=&quot;https://wiki.openstack.org/wiki/GitCommitMessages#Information_in_commit_messages&quot;&gt;https://wiki.openstack.org/wiki/GitCommitMessages#Information_in_commit_messages&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;references-in-commit-messages&quot;&gt;References in commit messages&lt;/h3&gt;
+
+&lt;p&gt;If the commit refers to an issue, add this information to the commit message header or body. e.g. the GitHub web platform automatically converts issue ids (e.g. #123) to links referring to the related issue. For issues tracker like Jira there are plugins which also converts Jira tickets, e.g. &lt;a href=&quot;https://chrome.google.com/webstore/detail/jirafy/npldkpkhkmpnfhpmeoahhakbgcldplbj&quot;&gt;Jirafy&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;In header:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[#123] Refer to GitHub issue…
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;CAT-123 Refer to Jira ticket with project identifier CAT…
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In body:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;…
+Fixes #123, #124
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;sources&quot;&gt;Sources&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html&lt;/li&gt;
+  &lt;li&gt;https://wiki.openstack.org/wiki/GitCommitMessages&lt;/li&gt;
+  &lt;li&gt;http://chris.beams.io/posts/git-commit/&lt;/li&gt;
+  &lt;li&gt;https://gist.github.com/robertpainsi/b632364184e70900af4ab688decf6f53&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Wed, 26 Aug 2020 00:00:00 -0500</pubDate>
+        <link>http://0.0.0.0:4000/post/commit-message-guidelines/</link>
+        <guid isPermaLink="true">http://0.0.0.0:4000/post/commit-message-guidelines/</guid>
+        
+        
+        <category>Post</category>
+        
+      </item>
+    
+  </channel>
+</rss>

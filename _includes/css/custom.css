@@ -1,0 +1,103 @@
+@media(max-width: 767px) {
+    header .intro-text {
+        padding-top: 150px;
+        padding-bottom: 50px;
+    }
+
+    header .intro-text .intro-lead-in {
+        margin-bottom: 25px;
+        font-family: {{ site.data.template.font.secondary }};
+        font-size: 30px;
+        font-style: italic;
+        line-height: 40px;
+    }
+
+    header .intro-text .intro-heading {
+        margin-bottom: 50px;
+        text-transform: uppercase;
+        font-family: {{ site.data.template.font.primary }};
+        font-size: 35px;
+        font-weight: 700;
+        line-height: 35px;
+    }
+}
+
+/* style for post */
+
+#post .post-item {
+    right: 0;
+    margin: 0 0 15px;
+}
+
+#post .post-item .post-link {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+#post .post-item .post-link .post-hover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    -webkit-transition: all ease .5s;
+    -moz-transition: all ease .5s;
+    transition: all ease .5s;
+    background: rgba(249,0,77,.9); /* Fallback when no plugin support */
+    background: rgba({{ site.data.template.color.primary | hex_to_rgb | join: ',' }}, .9);
+}
+
+#post .post-item .post-link .post-hover:hover {
+    opacity: 1;
+}
+
+#post .post-item .post-link .post-hover .post-hover-content {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 20px;
+    margin-top: -12px;
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+}
+
+#post .post-item .post-link .post-hover .post-hover-content i {
+    margin-top: -12px;
+}
+
+#post .post-item .post-link .post-hover .post-hover-content h3,
+#post .post-item .post-link .post-hover .post-hover-content h4 {
+    margin: 0;
+}
+
+#post .post-item .post-caption {
+    margin: 0 auto;
+    padding: 25px;
+    max-width: 400px;
+    text-align: center;
+    background-color: #fff;
+}
+
+#post .post-item .post-caption h4 {
+    margin: 0;
+    text-transform: none;
+}
+
+#post .post-item .post-caption p {
+    margin: 0;
+    font-family: {{ site.data.template.font.secondary }};
+    font-size: 16px;
+    font-style: italic;
+}
+
+#post * {
+    z-index: 2;
+}
+
+@media(min-width:767px) {
+    #post .post-item {
+        margin: 0 0 30px;
+    }
+}
