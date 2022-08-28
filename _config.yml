@@ -1,0 +1,29 @@
+url: https://George-Petrovski.github.io
+baseurl: 
+
+# Site settings
+title: George Petrovski
+email: georcje@hotmail.com
+description: "Developer. Full Stack. Student."
+
+# Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
+social:
+  #- title: twitter
+  #  url: http://twitter.com/jekyllrb
+  #- title: facebook
+  #  url:
+  #- title: stack-overflow
+  #  url: https://stackoverflow.com/users/
+  - title: github
+    url: https://github.com/George-Petrovski
+  #- title: linkedin
+  #  url: https://www.linkedin.com/in/
+
+# Postal address (add as many lines as necessary)
+#address:
+#  - line: 3481 Melrose Place
+#  - line: Beverly Hills, CA 90210
+
+# Build settings
+markdown: kramdown
+permalink: /:categories/:title/
